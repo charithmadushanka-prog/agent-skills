@@ -71,12 +71,6 @@ Create a rules file that persists across sessions. This is the highest-leverage 
 [One short example of a well-written component in your style]
 ```
 
-**Equivalent files for other tools:**
-- `.cursorrules` or `.cursor/rules/*.md` (Cursor)
-- `.windsurfrules` (Windsurf)
-- `.github/copilot-instructions.md` (GitHub Copilot)
-- `AGENTS.md` (OpenAI Codex)
-
 ### Level 2: Specs and Architecture
 
 Load the relevant spec section when starting a feature. Don't load the entire spec if only one section applies.

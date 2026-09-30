@@ -120,7 +120,7 @@ Checklists used by more than one skill — testing, security, performance, acces
 
 This is a pack-level design choice. The Agent Skills spec describes a skill as a self-contained directory, but several skills here point at the same checklists. Colocating those would force one of two options: copy the checklist into every skill that uses it, or pick one skill to "own" it and have the others reach into that directory. Both drift over time. A single repo-root copy stays the source of truth.
 
-The tradeoff is portability: a whole-repo install (such as the Claude Code marketplace plugin) carries `references/` along, but a per-skill install that copies only `skills/<name>/` leaves the repo-root sibling behind, and those links resolve to nothing. That gap is tracked in [#361](https://github.com/addyosmani/agent-skills/issues/361).
+The tradeoff is portability: a whole-repo install (the Claude Code plugin) carries `references/` along, but a per-skill install that copies only `skills/<name>/` leaves the repo-root sibling behind, and those links resolve to nothing. That gap is tracked in [#361](https://github.com/addyosmani/agent-skills/issues/361).
 
 Current convention: material used by exactly one skill is a supporting file inside that skill's directory; material shared across skills goes in `references/`.
 
@@ -157,7 +157,7 @@ When a skill ships runnable helpers under `scripts/`, each script follows these 
 
 ## Write the Procedure, Not the Workaround
 
-Skills in this pack run on many agents and model generations. A step that exists because one model gets a specific call wrong is a liability on every other model: it constrains agents that would have solved the task directly, and it spends turns that stronger models need for the actual work. Cross-model transfer measurements ([WikiSkill, arXiv:2608.27454](https://arxiv.org/abs/2608.27454)) show skills authored against one model's execution failures can leave a stronger model performing *worse than with no skill at all*.
+Skills in this pack run across many Claude model generations. A step that exists because one model gets a specific call wrong is a liability on every other model: it constrains agents that would have solved the task directly, and it spends turns that stronger models need for the actual work. Cross-model transfer measurements ([WikiSkill, arXiv:2608.27454](https://arxiv.org/abs/2608.27454)) show skills authored against one model's execution failures can leave a stronger model performing *worse than with no skill at all*.
 
 **The rule:** if a step cannot be justified without naming a model, a model version, or one agent's private tool name, it belongs in an issue, not in a skill. Describe the capability ("run the focused test command", "write the file"), not the mechanism one runtime happens to expose (`run_command`, `write_to_file`).
 

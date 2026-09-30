@@ -2,14 +2,14 @@
 # agent-skills session start hook
 # Injects the using-agent-skills meta-skill into a new session.
 #
-# Not wired by the plugin: hosts that already route skills from their
-# descriptions (Claude Code, Codex CLI) would run a second router on top of
-# the native one — see docs/getting-started.md. Wire this script into a
-# SessionStart hook only on hosts without native skill routing.
+# Not wired by the plugin: Claude Code already routes skills from their
+# descriptions, so this would run a second router on top of the native one —
+# see docs/getting-started.md. Wire it into a SessionStart hook only if you
+# want the meta-skill injected unconditionally.
 #
 # Every output path must emit the standard SessionStart envelope
 #   {"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": "..."}}
-# Hosts that validate hook output (Codex CLI, Claude Code) reject other shapes.
+# Claude Code validates hook output and rejects other shapes.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SKILLS_DIR="$(dirname "$SCRIPT_DIR")/skills"

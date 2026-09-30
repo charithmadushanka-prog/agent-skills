@@ -116,7 +116,7 @@ main agent → research sub-agent (reads 50 files) → digest → main agent con
 
 ## Claude Code compatibility
 
-This catalog is harness-agnostic, but most readers will run it on Claude Code. Here's how each pattern maps onto Claude Code's primitives — and where the platform enforces our rules for us.
+Here's how each pattern maps onto Claude Code's primitives — and where the platform enforces our rules for us.
 
 ### Where personas live
 
@@ -293,9 +293,9 @@ A persona whose job is to decide which other persona to call.
 - Pure routing layer with no domain value
 - Adds two paraphrasing hops → information loss + roughly 2× token cost
 - The user already knew they wanted a review; they could have called `/review` directly
-- Replicates the work that slash commands and intent mapping in `AGENTS.md` already do
+- Replicates the work that slash commands and intent mapping in `CLAUDE.md` already do
 
-**What to do instead:** add or refine slash commands. Document intent → command mapping in `AGENTS.md`.
+**What to do instead:** add or refine slash commands. Document intent → command mapping in `CLAUDE.md`.
 
 ---
 

@@ -1,8 +1,8 @@
 # agent-skills
 
-This is the agent-skills project — a collection of production-grade engineering skills for AI coding agents.
+This is the agent-skills project — a Claude Code plugin of production-grade engineering skills, forked from [`addyosmani/agent-skills`](https://github.com/addyosmani/agent-skills).
 
-> **Scope:** This file configures agents working on the [`addyosmani/agent-skills`](https://github.com/addyosmani/agent-skills) repository itself, not other projects. Don't copy it into another project or a global agent configuration; the reusable assets are the skills in `skills/`.
+> **Scope:** This file configures Claude Code working on this repository itself, not other projects. Don't copy it into another project or your global `~/.claude/CLAUDE.md`; the reusable assets are the skills in `skills/`.
 
 ## Project Structure
 
@@ -13,7 +13,7 @@ hooks/        → Session lifecycle hooks
 .claude/commands/ → Slash commands (/spec, /plan, /build, /test, /review, /code-simplify, /ship; plus /webperf specialist audit)
 references/   → Supplementary checklists (testing, performance, security, accessibility, observability)
 evals/        → Skill eval cases + framework (see evals/README.md)
-docs/         → Setup guides for different tools
+docs/         → Setup, adoption, and authoring guides
 ```
 
 ## Skills by Phase

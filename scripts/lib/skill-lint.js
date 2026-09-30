@@ -168,12 +168,11 @@ function parseFrontmatter(content) {
  * `parseFrontmatter` above splits each line on its first colon. That is enough
  * to read `name` and `description`, and it is deliberately forgiving — but it
  * means a SKILL.md whose frontmatter is not valid YAML passes every check here.
- * The hosts that consume these skills do not share that forgiveness: Cursor
- * parses the frontmatter as YAML when a skill is attached to a message, and a
- * parse failure there fails the whole request with a generic server error and
- * takes the rest of the chat's context with it (#494).
+ * Claude Code does not share that forgiveness: it parses the frontmatter as
+ * YAML when a skill is loaded, and a strict parser failure can break the
+ * request that loads it (#494).
  *
- * So the repo could ship frontmatter that breaks a host while CI stayed green.
+ * So the repo could ship frontmatter that breaks Claude Code while CI stayed green.
  * That was verified once by hand, against all 25 skills, in the #494 thread;
  * this makes it a check instead of a memory.
  *

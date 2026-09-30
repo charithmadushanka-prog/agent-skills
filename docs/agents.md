@@ -1,6 +1,6 @@
 # Agent Personas
 
-Specialist personas that play a single role with a single perspective. Each persona is a Markdown file consumed as a system prompt by your harness (Claude Code, Cursor, Copilot, etc.).
+Specialist personas that play a single role with a single perspective. Each persona is a Markdown file consumed as a Claude Code subagent definition.
 
 | Persona | Role | Best for |
 |---------|------|----------|
@@ -94,7 +94,7 @@ Why this fails:
 - Pure routing layer with no domain value
 - Adds two paraphrasing hops → information loss + 2× token cost
 - The user already knows they want a review; let them call `/review` directly
-- Replicates work that slash commands and `AGENTS.md` intent-mapping already do
+- Replicates work that slash commands and `CLAUDE.md` intent-mapping already do
 
 ## Rules for personas
 

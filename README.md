@@ -1,8 +1,8 @@
 # Agent Skills
 
-**Production-grade engineering skills for AI coding agents.**
+**Production-grade engineering skills for Claude Code.**
 
-Skills encode the workflows, quality gates, and best practices that senior engineers use when building software. These ones are packaged so AI agents follow them consistently across every phase of development.
+Skills encode the workflows, quality gates, and best practices that senior engineers use when building software. These ones are packaged so Claude Code follows them consistently across every phase of development.
 
 <a href="https://trendshift.io/repositories/25200" target="_blank"><img src="https://trendshift.io/api/badge/repositories/25200" alt="addyosmani%2Fagent-skills | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
@@ -43,32 +43,7 @@ Skills also activate automatically based on what you're doing — designing an A
 
 ## Quick Start
 
-**Fastest path — any agent, one command.** The open [skills CLI](https://github.com/vercel-labs/skills) installs into 70+ agents (Claude Code, Cursor, Codex, Copilot, Cline, and more):
-
-```bash
-npx skills add addyosmani/agent-skills            # install all 25 skills
-npx skills add addyosmani/agent-skills --list     # browse before installing
-```
-
-Or grab individual skills:
-
-```bash
-npx skills add addyosmani/agent-skills --skill code-review-and-quality   # five-axis review before merge
-npx skills add addyosmani/agent-skills --skill interview-me              # requirements interrogation, one question at a time
-npx skills add addyosmani/agent-skills --skill typescript-test-driven-development   # red-green-refactor, enforced
-```
-
-> **Installing one skill?** A per-skill `npx` install copies only
-> `skills/<name>/`, not the repo-level `references/` directory. The skill still
-> works, but paths to supplementary shared checklists are unavailable. Use a
-> whole-repo integration, clone the repository, or copy the needed checklist into
-> a `references/` directory inside the installed skill. This portability gap is
-> tracked in [#361](https://github.com/addyosmani/agent-skills/issues/361).
-
-Prefer a native integration? Pick your tool below.
-
-<details>
-<summary><b>Claude Code (recommended)</b></summary>
+Agent Skills is a Claude Code plugin.
 
 **Marketplace install:**
 
@@ -95,121 +70,29 @@ git clone https://github.com/addyosmani/agent-skills.git
 claude --plugin-dir /path/to/agent-skills
 ```
 
-</details>
-
-<details>
-<summary><b>Cursor</b></summary>
-
-Put workflow skills under `.cursor/skills/` (sync from `agent-skills/skills/`) and short policies in `.cursor/rules/*.mdc` — do not paste full skills into rules. See [docs/cursor-setup.md](docs/cursor-setup.md).
-
-</details>
-
-<details>
-<summary><b>Antigravity CLI</b></summary>
-
-Install as a native plugin for skills and subagents. In affected Antigravity CLI releases, legacy command TOMLs are reported as converted but their wrapper commands are not discoverable; invoke the underlying namespaced skills directly. See [docs/antigravity-setup.md](docs/antigravity-setup.md#lifecycle-workflows-and-command-compatibility).
-
-**Install from the repo:**
+**Skills only, via the skills CLI.** The open [skills CLI](https://github.com/vercel-labs/skills) can copy the skills into Claude Code's skills directory without the plugin (no slash commands, personas, or hooks):
 
 ```bash
-agy plugin install https://github.com/addyosmani/agent-skills.git
+npx skills add addyosmani/agent-skills            # install all 25 skills
+npx skills add addyosmani/agent-skills --list     # browse before installing
 ```
 
-**Install from a local clone:**
+Or grab individual skills:
 
 ```bash
-git clone https://github.com/addyosmani/agent-skills.git
-agy plugin install ./agent-skills
+npx skills add addyosmani/agent-skills --skill code-review-and-quality   # five-axis review before merge
+npx skills add addyosmani/agent-skills --skill interview-me              # requirements interrogation, one question at a time
+npx skills add addyosmani/agent-skills --skill typescript-test-driven-development   # red-green-refactor, enforced
 ```
 
-</details>
+> **Installing one skill?** A per-skill `npx` install copies only
+> `skills/<name>/`, not the repo-level `references/` directory. The skill still
+> works, but paths to supplementary shared checklists are unavailable. Use the
+> plugin install, clone the repository, or copy the needed checklist into
+> a `references/` directory inside the installed skill. This gap is
+> tracked in [#361](https://github.com/addyosmani/agent-skills/issues/361).
 
-<details>
-<summary><b>Gemini CLI</b></summary>
-
-Install as native skills for auto-discovery, or add to `GEMINI.md` for persistent context. See [docs/gemini-cli-setup.md](docs/gemini-cli-setup.md).
-
-**Install from the repo:**
-
-```bash
-gemini skills install https://github.com/addyosmani/agent-skills.git --path skills
-```
-
-**Install from a local clone:**
-
-```bash
-gemini skills install ./agent-skills/skills/
-```
-
-</details>
-
-<details>
-<summary><b>Windsurf</b></summary>
-
-Add skill contents to your Windsurf rules configuration. See [docs/windsurf-setup.md](docs/windsurf-setup.md).
-
-</details>
-
-<details>
-<summary><b>OpenCode</b></summary>
-
-Copy skills to `.opencode/skills/` (or `~/.config/opencode/skills/`), add a project-local `AGENTS.md`, and use the built-in `skill` tool for agent-driven execution. Optional slash commands can be added under `.opencode/commands/`.
-
-See [docs/opencode-setup.md](docs/opencode-setup.md).
-
-</details>
-
-<details>
-<summary><b>GitHub Copilot</b></summary>
-
-Use agent definitions from `agents/` as Copilot personas and skill content in `.github/copilot-instructions.md`. See [docs/copilot-setup.md](docs/copilot-setup.md).
-
-Using the standalone `copilot` CLI? Install it as a plugin — see [docs/copilot-cli-setup.md](docs/copilot-cli-setup.md).
-
-</details>
-
-<details>
-  <summary><b>Kiro IDE & CLI </b></summary>
-  Skills for Kiro reside under ".kiro/skills/" and can be stored under Project or Global level. Kiro also supports Agents.md. See Kiro docs at https://kiro.dev/docs/skills/
-</details>
-
-<details>
-<summary><b>Codex</b></summary>
-
-Install as a native Codex plugin (Codex CLI v0.122+):
-
-```bash
-codex plugin marketplace add addyosmani/agent-skills
-codex plugin add agent-skills@agent-skills
-```
-
-The first command registers the marketplace; the second installs the plugin. Codex reads the root `skills/` directory directly through `.codex-plugin/plugin.json`. Once installed, invoke skills in chat using `@` (e.g., `@spec-driven-development`). See [docs/codex-setup.md](docs/codex-setup.md) for local installation and troubleshooting.
-
-</details>
-
-<details>
-<summary><b>Command Code</b></summary>
-
-Install natively with the built-in `cmd skills` command. Command Code clones the repo, discovers every `SKILL.md`, and installs into `.commandcode/skills/`:
-
-```bash
-cmd skills add addyosmani/agent-skills            # pick skills to install (project)
-cmd skills add addyosmani/agent-skills --global   # install for all projects (~/.commandcode/skills/)
-cmd skills add addyosmani/agent-skills -s spec-driven-development  # install a specific skill
-```
-
-Installed skills show up in the TUI slash menu, e.g. `/spec-driven-development`. See [docs/commandcode-setup.md](docs/commandcode-setup.md).
-
-</details>
-
-<details>
-<summary><b>Other Agents</b></summary>
-
-Skills are plain Markdown - they work with any agent that accepts system prompts or instruction files. See [docs/getting-started.md](docs/getting-started.md).
-
-</details>
-
-
+See [docs/getting-started.md](docs/getting-started.md) for more setup options.
 
 ---
 
@@ -349,21 +232,13 @@ Every skill follows a consistent anatomy:
 
 ## Project Structure
 
-The portable core stays in shared directories. Host-specific paths are native discovery conventions, not branding aliases; renaming or merging them would break the tools that scan those exact locations.
-
-| Layer / consumer | Repository paths | Purpose |
+| Layer | Repository paths | Purpose |
 |---|---|---|
-| Shared workflow core | `skills/` (25 skills) | Portable `SKILL.md` workflows used by every integration |
-| Shared review material | `agents/` (4 personas), `references/` (7 checklists) | Specialist reviewers and pack-level checklists carried by whole-repo installs |
-| Claude Code adapter | `.claude/commands/` (9 commands), `.claude-plugin/`, `hooks/` | Slash-command wrappers, marketplace metadata, and lifecycle hooks |
-| Gemini CLI adapter | `.gemini/commands/` (9 commands) | Gemini-native TOML command wrappers |
-| Antigravity CLI adapter | `commands/` (9 commands), `plugin.json` | Legacy TOML wrappers and the root plugin manifest; see the [known wrapper limitation](docs/antigravity-setup.md#lifecycle-workflows-and-command-compatibility) |
-| Codex adapter | `.codex-plugin/`, `.agents/plugins/` | Codex plugin metadata and marketplace registration; Codex consumes `skills/` directly |
-| GitHub Copilot CLI adapter | `plugin.json` | Root plugin metadata; Copilot CLI discovers `skills/` by convention and does not register the lifecycle wrappers |
+| Workflow core | `skills/` (25 skills) | `SKILL.md` workflows discovered by Claude Code |
+| Review material | `agents/` (4 personas), `references/` (7 checklists) | Specialist subagents and pack-level checklists |
+| Claude Code plugin | `.claude/commands/` (9 commands), `.claude-plugin/`, `hooks/` | Slash commands, plugin and marketplace manifests (`.claude-plugin/plugin.json` is the single version source), and lifecycle hooks |
 | Contributor tooling | `scripts/` (13 scripts), `evals/` (25 case files), `.github/workflows/` | Validation, routing evals, and CI |
-| Documentation | `docs/` | Universal guidance and per-tool setup guides |
-
-Tools without a checked-in adapter directory install or copy the shared `skills/` core into their own native location. The [Quick Start](#quick-start) links the setup guide for each supported host.
+| Documentation | `docs/` | Setup, adoption, and authoring guidance |
 
 ---
 

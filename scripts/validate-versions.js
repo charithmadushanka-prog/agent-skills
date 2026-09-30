@@ -4,12 +4,11 @@
 
 const { readFileSync } = require("node:fs");
 
+// .claude-plugin/plugin.json is the version source; the marketplace entry
+// must advertise the same version.
+const sourceManifest = ".claude-plugin/plugin.json";
 const manifestPaths = [
-  "plugin.json",
-  ".codex-plugin/plugin.json",
-  ".claude-plugin/plugin.json",
   ".claude-plugin/marketplace.json",
-  ".agents/plugins/marketplace.json",
 ];
 
 function readManifestVersion(manifestPath) {
@@ -17,9 +16,9 @@ function readManifestVersion(manifestPath) {
   return manifest.version ?? manifest.plugins?.[0]?.version;
 }
 
-const expectedVersion = readManifestVersion("plugin.json");
+const expectedVersion = readManifestVersion(sourceManifest);
 if (!expectedVersion) {
-  throw new Error("plugin.json is missing a version field");
+  throw new Error(`${sourceManifest} is missing a version field`);
 }
 
 for (const manifestPath of manifestPaths) {

@@ -1,11 +1,11 @@
 # Getting Started with agent-skills
 
-agent-skills works with any AI coding agent that accepts Markdown instructions. This guide covers the universal approach. For tool-specific setup, see the dedicated guides.
+agent-skills is a Claude Code plugin. This guide covers installing it and loading skills manually when you are not using the plugin.
 
 Want a worked example before setting up your own project? The
 [interactive tutorials](https://skills.addy.ie/tutorials/) walk through a
 greenfield build, a brownfield feature, and a safe automation loop with
-copyable prompts for Claude Code, Codex, or any other agent.
+copyable prompts for Claude Code.
 
 ## How Skills Work
 
@@ -13,7 +13,9 @@ Each skill is a Markdown file (`SKILL.md`) that describes a specific engineering
 
 **Skills are not reference docs.** They're step-by-step processes the agent follows.
 
-## Quick Start (Any Agent)
+## Quick Start
+
+The recommended path is the Claude Code plugin install in the [README](../README.md#quick-start). The steps below cover manual use.
 
 ### 1. Clone the repository
 
@@ -30,32 +32,32 @@ Browse the `skills/` directory. Each subdirectory contains a `SKILL.md` with:
 - **Common rationalizations** — excuses the agent might use to skip steps
 - **Red flags** — signs the skill is being violated
 
-### 3. Load the skill into your agent
+### 3. Load the skill into Claude Code
 
-Copy the relevant `SKILL.md` content into your agent's system prompt, rules file, or conversation. The most common approaches:
+Copy the skill directory into `.claude/skills/` (project) or `~/.claude/skills/` (personal), or put the relevant `SKILL.md` content into `CLAUDE.md` or the conversation. The most common approaches:
 
 **System prompt:** Paste the skill content at the start of the session.
 
-**Rules file:** Add skill content to your project's rules file (CLAUDE.md, .cursorrules, etc.).
+**Rules file:** Add skill content to your project's `CLAUDE.md`.
 
 **Conversation:** Reference the skill when giving instructions: "Follow the typescript-test-driven-development process for this change."
 
 ### 4. Use the meta-skill for discovery when needed
 
-If your agent does not route skills natively, start with the `using-agent-skills` skill loaded. It contains a flowchart that maps task types to the appropriate skill.
+If skills are not being discovered natively (for example, pasted into a prompt), start with the `using-agent-skills` skill loaded. It contains a flowchart that maps task types to the appropriate skill.
 
-If your host already discovers and activates skills from their descriptions, do not also paste `using-agent-skills` into an always-on system prompt or rules file. That creates two routers for the same task. Install the individual skills and let the host activate them on demand instead.
+If Claude Code already discovers and activates skills from their descriptions, do not also paste `using-agent-skills` into an always-on system prompt or rules file. That creates two routers for the same task. Install the individual skills and let Claude Code activate them on demand instead.
 
 ### Existing projects need no migration
 
 Install the pack from the existing project's root using the normal setup path
-for your agent, then keep working in that project. Skills activate for matching
+above, then keep working in that project. Skills activate for matching
 tasks; they do not require a new repository layout or a one-time conversion of
 existing code.
 
-Do not copy this repository's root `AGENTS.md` or `CLAUDE.md` into the project.
+Do not copy this repository's root `CLAUDE.md` into the project.
 Those files configure contributors to agent-skills itself. Add only the skills
-and any project-specific instructions your agent normally reads. For a gradual
+and any project-specific instructions in your own `CLAUDE.md`. For a gradual
 rollout in an established codebase, follow the [Adoption Guide](adoption-guide.md).
 
 ## Recommended Setup
@@ -119,7 +121,7 @@ The `agents/` directory contains pre-configured agent personas:
 | `security-auditor.md` | Vulnerability detection |
 | `web-performance-auditor.md` | Core Web Vitals & performance audit (via `/webperf`) |
 
-Load an agent definition when you need specialized review. For example, ask your coding agent to "review this change using the code-reviewer agent persona" and provide the agent definition.
+Load an agent definition when you need specialized review. For example, ask Claude Code to "review this change using the code-reviewer agent persona" and provide the agent definition.
 
 ## Using Commands
 
@@ -137,12 +139,6 @@ The `.claude/commands/` directory contains slash commands for Claude Code:
 | `/code-simplify` | typescript-code-simplification |
 | `/ship` | shipping-and-launch |
 | `/webperf` | web-performance-auditor (specialist agent, web apps only) |
-
-> **Note:** When installed as a Claude Code plugin you may see a warning like
-> _"Default commands/ folder is ignored because the manifest sets 'commands'"_.
-> This is expected. The root `commands/` directory belongs to the Antigravity CLI
-> and is intentionally separate from `.claude/commands/`. All Claude Code slash
-> commands load correctly from `.claude/commands/`; the warning is cosmetic.
 
 ## Using References
 
@@ -163,9 +159,9 @@ Load a reference when you need detailed patterns beyond what the skill covers.
 If you install one skill with `npx skills add ... --skill <name>`, only the
 selected `skills/<name>/` directory is copied. The skill still works, but paths
 to supplementary checklists in the repo-level `references/` directory are
-unavailable. Use a whole-repo integration, clone the repository, or copy the
+unavailable. Use the plugin install, clone the repository, or copy the
 needed checklist into a `references/` directory inside the installed skill.
-This portability gap is tracked in
+This gap is tracked in
 [addyosmani/agent-skills#361](https://github.com/addyosmani/agent-skills/issues/361).
 
 ## Spec and task artifacts
@@ -193,7 +189,7 @@ The same artifacts are the handoff between sessions. For a small task, run the w
 
 A shell-level "Ralph loop" is harness behavior, not a separate skill workflow. If you use one, restart only after the current task has reached a recorded boundary; on re-entry, read the durable artifacts and repository state before selecting the next pending task. A process exit is not evidence that a task passed, and a restart must not bypass an approval gate. See the `context-engineering` skill's **Restartable Session Boundaries** section for the handoff checklist.
 
-This doesn't need the `/spec` and `/plan` wrappers — plain requests work in any agent, including a `npx skills add` install that only has the skills:
+This doesn't need the `/spec` and `/plan` wrappers — plain requests work too, including with a `npx skills add` install that only has the skills:
 
 > Read SPEC.md, then break it into small verifiable tasks with acceptance criteria and dependency order. Save them to tasks/plan.md and tasks/todo.md. No product code yet — show me the plan first.
 

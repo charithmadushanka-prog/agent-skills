@@ -285,9 +285,8 @@ test('CRLF line endings are handled', () => {
 
 // ── Frontmatter must be valid YAML, not merely splittable ────────────────────
 // `parseFrontmatter` splits each line on its first colon, which is forgiving by
-// design. The hosts that read these skills are not: Cursor parses the
-// frontmatter as YAML when a skill is attached to a message, and a parse
-// failure fails the whole request and takes the chat's context with it (#494).
+// design. Claude Code is not: it parses the frontmatter as YAML when a skill is
+// loaded, and a strict parser failure can break that request (#494).
 // Each shape below was confirmed rejected by a strict parser (ruby psych) while
 // passing every other check in this linter.
 

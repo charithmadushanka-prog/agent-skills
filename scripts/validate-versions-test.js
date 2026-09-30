@@ -4,12 +4,9 @@ const assert = require("node:assert/strict");
 const { readFileSync } = require("node:fs");
 const test = require("node:test");
 
+const sourceManifest = ".claude-plugin/plugin.json";
 const manifestPaths = [
-  "plugin.json",
-  ".codex-plugin/plugin.json",
-  ".claude-plugin/plugin.json",
   ".claude-plugin/marketplace.json",
-  ".agents/plugins/marketplace.json",
 ];
 
 function readManifestVersion(manifestPath) {
@@ -17,9 +14,9 @@ function readManifestVersion(manifestPath) {
   return manifest.version ?? manifest.plugins?.[0]?.version;
 }
 
-test("all plugin manifests use the root plugin.json version", () => {
-  const expectedVersion = readManifestVersion("plugin.json");
-  assert.ok(expectedVersion, "plugin.json must define a version");
+test("all plugin manifests use the .claude-plugin/plugin.json version", () => {
+  const expectedVersion = readManifestVersion(sourceManifest);
+  assert.ok(expectedVersion, `${sourceManifest} must define a version`);
 
   for (const manifestPath of manifestPaths) {
     assert.equal(

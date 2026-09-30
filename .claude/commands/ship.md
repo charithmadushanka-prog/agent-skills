@@ -16,7 +16,7 @@ In Claude Code, each call passes `subagent_type` matching the persona's `name` f
 2. **`security-auditor`** — Run a vulnerability and threat-model pass. Check OWASP Top 10, secrets handling, auth/authz, dependency CVEs. Output the standard audit report.
 3. **`test-engineer`** — Analyze test coverage for the change. Identify gaps in happy path, edge cases, error paths, and concurrency scenarios. Output the standard coverage analysis.
 
-In other harnesses without an Agent tool, invoke each persona's system prompt sequentially and treat their outputs as if returned in parallel — the merge phase still works.
+If the Agent tool is unavailable (for example, on Claude.ai), invoke each persona's system prompt sequentially and treat their outputs as if returned in parallel — the merge phase still works.
 
 Constraints (from Claude Code's subagent model):
 - Subagents cannot spawn other subagents — do not let one persona delegate to another.

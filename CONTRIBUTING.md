@@ -1,6 +1,6 @@
 # Contributing to Agent Skills
 
-Thanks for your interest in contributing! This project is a collection of production-grade engineering skills for AI coding agents.
+Thanks for your interest in contributing! This project is a collection of production-grade engineering skills for Claude Code.
 
 New here? [docs/developer-onboarding.md](docs/developer-onboarding.md) is a guided tour of how the repo fits together (the five layers, the verification loop, and the contribution paths) and tells you when to read this document, [skill-anatomy.md](docs/skill-anatomy.md), and [evals/README.md](evals/README.md). This file is the authoritative rulebook; the onboarding guide is the map.
 
@@ -74,7 +74,7 @@ If a skill or description change is rejected based on eval results, add one row 
 
 ## Repo-scoped files
 
-`AGENTS.md` and `CLAUDE.md` at the repo root configure agents working on the [`addyosmani/agent-skills`](https://github.com/addyosmani/agent-skills) repository itself. When writing setup guides or docs, do not instruct users to copy these files into their own projects or into a global agent configuration; the reusable assets are the skills in `skills/`.
+`CLAUDE.md` at the repo root configures Claude Code working on this repository (a fork of [`addyosmani/agent-skills`](https://github.com/addyosmani/agent-skills)) itself. When writing setup guides or docs, do not instruct users to copy it into their own projects or into their global `~/.claude/CLAUDE.md`; the reusable assets are the skills in `skills/`.
 
 ## Translations
 
@@ -82,7 +82,7 @@ We don't accept translations of the documentation (README, `docs/`) or of skills
 
 ## Testing Hooks
 
-The session-start script (`hooks/session-start.sh`) injects the `using-agent-skills` meta-skill when wired into a host's `SessionStart` hook. The Claude Code plugin does not register it — Claude Code routes skills natively, and always-on injection would create two routers for the same task (see [docs/getting-started.md](docs/getting-started.md)); the script remains for hosts without native skill routing. A regression test at `hooks/session-start-test.sh` validates the script's JSON payload — both when `jq` is available and when it isn't.
+The session-start script (`hooks/session-start.sh`) injects the `using-agent-skills` meta-skill when wired into a `SessionStart` hook. The Claude Code plugin does not register it — Claude Code routes skills natively, and always-on injection would create two routers for the same task (see [docs/getting-started.md](docs/getting-started.md)); the script remains for setups that load skills without native routing and wire the hook in manually. A regression test at `hooks/session-start-test.sh` validates the script's JSON payload — both when `jq` is available and when it isn't.
 
 Run it before opening any PR that touches:
 
