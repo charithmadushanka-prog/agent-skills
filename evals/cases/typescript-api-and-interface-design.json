@@ -1,5 +1,5 @@
 {
-  "skill_name": "api-and-interface-design",
+  "skill_name": "typescript-api-and-interface-design",
   "trigger": {
     "positive": [
       {
@@ -18,11 +18,11 @@
     "negative": [
       {
         "prompt": "My unit test is failing with a null pointer exception",
-        "owner": "debugging-and-error-recovery"
+        "owner": "typescript-debugging-and-error-recovery"
       },
       {
         "prompt": "Make this landing page responsive on mobile",
-        "owner": "frontend-ui-engineering"
+        "owner": "typescript-frontend-ui-engineering"
       }
     ]
   },
@@ -32,7 +32,7 @@
       "prompt": "Design the public API for a URL-shortening service: create, resolve, stats. Produce the endpoint contracts.",
       "expected_output": "Endpoint contracts with methods, paths, request/response shapes, and explicit error semantics",
       "files": [
-        "api-and-interface-design"
+        "typescript-api-and-interface-design"
       ],
       "expectations": [
         "Error responses are specified with status codes and a consistent error shape, not just happy paths",

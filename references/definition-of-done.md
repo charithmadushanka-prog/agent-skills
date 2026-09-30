@@ -1,6 +1,6 @@
 # Definition of Done
 
-A standing, project-wide bar that every change must clear before it counts as done. Unlike acceptance criteria, which vary per task and answer "did we build the right thing?", the Definition of Done is the same every time and answers "is this finished to our standard?". Use it as the final gate in `planning-and-task-breakdown`, `incremental-implementation`, and `shipping-and-launch`.
+A standing, project-wide bar that every change must clear before it counts as done. Unlike acceptance criteria, which vary per task and answer "did we build the right thing?", the Definition of Done is the same every time and answers "is this finished to our standard?". Use it as the final gate in `planning-and-task-breakdown`, `typescript-incremental-implementation`, and `shipping-and-launch`.
 
 ## Definition of Done vs. Acceptance Criteria
 
@@ -32,7 +32,7 @@ Apply this to every change before declaring it done.
 - [ ] Changes are scoped to the task; no unrelated refactors snuck in
 - [ ] Linting and formatting pass
 
-The depth behind these items lives in `code-review-and-quality` (the five-axis review) and `code-simplification` (reducing complexity without changing behavior).
+The depth behind these items lives in `code-review-and-quality` (the five-axis review) and `typescript-code-simplification` (reducing complexity without changing behavior).
 
 ### Integration
 - [ ] Change works with the rest of the system, not just in isolation
@@ -45,8 +45,8 @@ The depth behind these items lives in `code-review-and-quality` (the five-axis r
 - [ ] Documentation describes the current state in timeless language, not the change history
 
 ### Ship-readiness
-- [ ] Security implications reviewed for any untrusted input, auth, or data handling (see `security-and-hardening`)
-- [ ] Observability in place for new critical paths (logs, metrics, traces) (see `observability-and-instrumentation`)
+- [ ] Security implications reviewed for any untrusted input, auth, or data handling (see `typescript-security-and-hardening`)
+- [ ] Observability in place for new critical paths (logs, metrics, traces) (see `typescript-observability-and-instrumentation`)
 - [ ] Rollback path exists for anything risky (see `shipping-and-launch`)
 - [ ] The human has reviewed and approved before merge or deploy
 

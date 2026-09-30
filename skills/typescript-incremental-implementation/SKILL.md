@@ -1,5 +1,5 @@
 ---
-name: incremental-implementation
+name: typescript-incremental-implementation
 description: Delivers changes incrementally in thin, verifiable slices. Use when implementing any feature or change that touches more than one file, or when picking up the next task from a plan. Use when rolling a change out behind a feature flag, when you're about to write a large amount of code at once, or when a task feels too big to land in one step.
 ---
 
@@ -198,7 +198,7 @@ Be explicit about what's in scope and what's NOT in scope for each increment.
 
 ## Increment Checklist
 
-After each increment, verify with the repository's own commands (see the test-driven-development skill's Discover the Stack First section):
+After each increment, verify with the repository's own commands (see the typescript-test-driven-development skill's Discover the Stack First section):
 
 - [ ] The change does one thing and does it completely
 - [ ] All existing tests still pass (the repository's test command: `npm test`, `./gradlew test`, `pytest`, ...)

@@ -50,7 +50,7 @@ Name the skill you want, or describe the task and let the agent route to it:
 
 > Use the spec-driven-development skill to write a spec for [the feature].
 
-> Use the test-driven-development skill: write a failing test for this bug first, then fix it.
+> Use the typescript-test-driven-development skill: write a failing test for this bug first, then fix it.
 
 > Use the code-review-and-quality skill to review my staged changes.
 

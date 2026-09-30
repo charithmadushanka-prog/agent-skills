@@ -20,10 +20,10 @@ docs/         → Setup guides for different tools
 
 **Define:** interview-me, idea-refine, spec-driven-development
 **Plan:** planning-and-task-breakdown
-**Build:** incremental-implementation, test-driven-development, context-engineering, source-driven-development, doubt-driven-development, frontend-ui-engineering, api-and-interface-design
-**Verify:** browser-testing-with-devtools, debugging-and-error-recovery
-**Review:** code-review-and-quality, code-simplification, security-and-hardening, performance-optimization
-**Ship:** git-workflow-and-versioning, ci-cd-and-automation, deprecation-and-migration, documentation-and-adrs, observability-and-instrumentation, shipping-and-launch
+**Build:** typescript-incremental-implementation, typescript-test-driven-development, context-engineering, source-driven-development, doubt-driven-development, typescript-frontend-ui-engineering, typescript-api-and-interface-design
+**Verify:** browser-testing-with-devtools, typescript-debugging-and-error-recovery
+**Review:** code-review-and-quality, typescript-code-simplification, typescript-security-and-hardening, typescript-performance-optimization
+**Ship:** git-workflow-and-versioning, ci-cd-and-automation, deprecation-and-migration, documentation-and-adrs, typescript-observability-and-instrumentation, shipping-and-launch
 
 ## Conventions
 

@@ -54,10 +54,10 @@ Use the native plugin skills directly while that importer limitation applies:
 | `/spec` | `/agent-skills:spec-driven-development` | Writes a structured spec before code |
 | `/constraints` | `/agent-skills:constraint-driven-development` | Defines and enforces the project's quality bar |
 | `/planning` | `/agent-skills:planning-and-task-breakdown` | Antigravity's built-in `/planning` command is a separate plan-mode control |
-| `/build` | `/agent-skills:incremental-implementation` | Also invoke `/agent-skills:test-driven-development`; wrapper-only `/build auto` orchestration is unavailable |
-| `/test` | `/agent-skills:test-driven-development` | Runs the red-green-refactor workflow |
+| `/build` | `/agent-skills:typescript-incremental-implementation` | Also invoke `/agent-skills:typescript-test-driven-development`; wrapper-only `/build auto` orchestration is unavailable |
+| `/test` | `/agent-skills:typescript-test-driven-development` | Runs the red-green-refactor workflow |
 | `/review` | `/agent-skills:code-review-and-quality` | Runs the five-axis review workflow |
-| `/code-simplify` | `/agent-skills:code-simplification` | Simplifies without changing behavior |
+| `/code-simplify` | `/agent-skills:typescript-code-simplification` | Simplifies without changing behavior |
 | `/ship` | `/agent-skills:shipping-and-launch` | The wrapper's automatic persona fan-out is unavailable; invoke specialist agents separately |
 | `/webperf` | Select `web-performance-auditor` from `/agents` | This workflow is a persona, not a skill |
 
@@ -91,8 +91,8 @@ Antigravity CLI automatically discovers the `SKILL.md` files located in the `ski
 
 For example, when you ask the agent to:
 - **Design a new system** &rarr; It will suggest/activate `spec-driven-development`.
-- **Implement a feature** &rarr; It will activate `incremental-implementation` and `test-driven-development`.
-- **Fix a bug** &rarr; It will activate `debugging-and-error-recovery`.
+- **Implement a feature** &rarr; It will activate `typescript-incremental-implementation` and `typescript-test-driven-development`.
+- **Fix a bug** &rarr; It will activate `typescript-debugging-and-error-recovery`.
 
 ### 2. Specialized Agent Personas
 The plugin registers reusable subagent definitions from the `agents/` directory:

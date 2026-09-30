@@ -25,7 +25,7 @@
       },
       {
         "prompt": "Write integration tests for the payments API",
-        "owner": "test-driven-development"
+        "owner": "typescript-test-driven-development"
       }
     ]
   },

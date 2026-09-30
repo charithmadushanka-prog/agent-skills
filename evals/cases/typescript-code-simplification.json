@@ -1,5 +1,5 @@
 {
-  "skill_name": "code-simplification",
+  "skill_name": "typescript-code-simplification",
   "trigger": {
     "positive": [
       {
@@ -18,11 +18,11 @@
     "negative": [
       {
         "prompt": "Add a feature flag system to the app",
-        "owner": "incremental-implementation"
+        "owner": "typescript-incremental-implementation"
       },
       {
         "prompt": "Diagnose why the build broke overnight",
-        "owner": "debugging-and-error-recovery"
+        "owner": "typescript-debugging-and-error-recovery"
       }
     ]
   },
@@ -32,7 +32,7 @@
       "prompt": "Simplify the provided 80-line function that parses config files, preserving exact behavior.",
       "expected_output": "A simpler implementation with identical behavior and a summary of what was removed and why",
       "files": [
-        "code-simplification"
+        "typescript-code-simplification"
       ],
       "expectations": [
         "Behavior is preserved (tests unchanged and passing, or equivalence argued concretely)",

@@ -61,12 +61,12 @@ mkdir -p .opencode/skills
 cp -r /path/to/agent-skills/skills/<skill-name> .opencode/skills/
 ```
 
-For example, to install `spec-driven-development` and `incremental-implementation`:
+For example, to install `spec-driven-development` and `typescript-incremental-implementation`:
 
 ```bash
 mkdir -p .opencode/skills
 cp -r /path/to/agent-skills/skills/spec-driven-development .opencode/skills/
-cp -r /path/to/agent-skills/skills/incremental-implementation .opencode/skills/
+cp -r /path/to/agent-skills/skills/typescript-incremental-implementation .opencode/skills/
 ```
 
 #### Global installation
@@ -113,13 +113,13 @@ This project uses skills installed under `.opencode/skills/` (or a compatible pa
 
 Map the user's intent to the matching skill automatically:
 
-- Feature / new functionality → `spec-driven-development`, then `incremental-implementation` and `test-driven-development`
+- Feature / new functionality → `spec-driven-development`, then `typescript-incremental-implementation` and `typescript-test-driven-development`
 - Planning / breakdown → `planning-and-task-breakdown`
-- Bug / failure / unexpected behavior → `debugging-and-error-recovery`
+- Bug / failure / unexpected behavior → `typescript-debugging-and-error-recovery`
 - Code review → `code-review-and-quality`
-- Refactoring / simplification → `code-simplification`
-- API or interface design → `api-and-interface-design`
-- UI work → `frontend-ui-engineering`
+- Refactoring / simplification → `typescript-code-simplification`
+- API or interface design → `typescript-api-and-interface-design`
+- UI work → `typescript-frontend-ui-engineering`
 
 ## Execution Model
 
@@ -156,9 +156,9 @@ When your project's `AGENTS.md` instructs the agent to use skills, the agent eva
 
 Examples:
 
-- "build a feature" → `incremental-implementation` + `test-driven-development`
+- "build a feature" → `typescript-incremental-implementation` + `typescript-test-driven-development`
 - "design a system" → `spec-driven-development`
-- "fix a bug" → `debugging-and-error-recovery`
+- "fix a bug" → `typescript-debugging-and-error-recovery`
 - "review this code" → `code-review-and-quality`
 
 ### 3. Lifecycle Mapping (Implicit Commands)
@@ -167,8 +167,8 @@ OpenCode does not require slash commands, but if you prefer them see the next se
 
 - DEFINE → `spec-driven-development`
 - PLAN → `planning-and-task-breakdown`
-- BUILD → `incremental-implementation` + `test-driven-development`
-- VERIFY → `debugging-and-error-recovery`
+- BUILD → `typescript-incremental-implementation` + `typescript-test-driven-development`
+- VERIFY → `typescript-debugging-and-error-recovery`
 - REVIEW → `code-review-and-quality`
 - SHIP → `shipping-and-launch`
 
@@ -218,7 +218,7 @@ This endpoint is returning 500 errors
 ```
 
 Agent behavior:
-- Invokes `debugging-and-error-recovery`
+- Invokes `typescript-debugging-and-error-recovery`
 - Reproduces → localizes → fixes → adds guards
 
 ### Example 3: Code Review

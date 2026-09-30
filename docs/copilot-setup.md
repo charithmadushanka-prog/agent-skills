@@ -2,7 +2,7 @@
 
 This guide covers Copilot in VS Code. For the standalone `copilot` command-line tool, see [copilot-cli-setup.md](copilot-cli-setup.md).
 
-**What an install actually gives you:** the skills. Each installed skill becomes a slash command named after its frontmatter `name` — `/spec-driven-development`, `/test-driven-development`, and so on. `npx skills add addyosmani/agent-skills` and the manual copy below both install skills only. Neither of those two routes copies this repo's short lifecycle wrappers (`/spec`, `/plan`, `/build`, `/test`, `/review`, `/ship`) — those are Claude Code commands living in `.claude/commands/`. Use the full skill names, or add your own aliases — see [Lifecycle workflows](#lifecycle-workflows).
+**What an install actually gives you:** the skills. Each installed skill becomes a slash command named after its frontmatter `name` — `/spec-driven-development`, `/typescript-test-driven-development`, and so on. `npx skills add addyosmani/agent-skills` and the manual copy below both install skills only. Neither of those two routes copies this repo's short lifecycle wrappers (`/spec`, `/plan`, `/build`, `/test`, `/review`, `/ship`) — those are Claude Code commands living in `.claude/commands/`. Use the full skill names, or add your own aliases — see [Lifecycle workflows](#lifecycle-workflows).
 
 ## Setup
 
@@ -11,10 +11,10 @@ This guide covers Copilot in VS Code. For the standalone `copilot` command-line 
 Copilot supports creating agent skills using a `.github/skills`, `.claude/skills`, or `.agents/skills` directory in your repository.
 
 ```bash
-mkdir -p .github/skills/test-driven-development .github/skills/code-review-and-quality
+mkdir -p .github/skills/typescript-test-driven-development .github/skills/code-review-and-quality
 
 # Create files for essential skills
-cat /path/to/agent-skills/skills/test-driven-development/SKILL.md > .github/skills/test-driven-development/SKILL.md
+cat /path/to/agent-skills/skills/typescript-test-driven-development/SKILL.md > .github/skills/typescript-test-driven-development/SKILL.md
 cat /path/to/agent-skills/skills/code-review-and-quality/SKILL.md > .github/skills/code-review-and-quality/SKILL.md
 ```
 
@@ -93,8 +93,8 @@ Skills are user-invocable by default, so once they're discovered the whole lifec
 |----------|--------------------|-------|
 | Define | `/spec-driven-development` | Writes a structured spec before code |
 | Plan | `/planning-and-task-breakdown` | Produces `tasks/plan.md` and `tasks/todo.md` |
-| Build | `/incremental-implementation` | Pair with `/test-driven-development`; one slice at a time |
-| Verify | `/test-driven-development` | Red-green-refactor, Prove-It for bugs |
+| Build | `/typescript-incremental-implementation` | Pair with `/typescript-test-driven-development`; one slice at a time |
+| Verify | `/typescript-test-driven-development` | Red-green-refactor, Prove-It for bugs |
 | Review | `/code-review-and-quality` | Five-axis review |
 | Ship | `/shipping-and-launch` | Launch readiness |
 
@@ -138,8 +138,8 @@ For the rest, run the same `mkdir`/`cat` block with the filename swapped (the fi
 | Alias file | `description` | Complete body — everything below the frontmatter |
 |------------|---------------|--------------------------------------------------|
 | `.github/prompts/plan.prompt.md` | Break an approved spec into ordered, verifiable tasks | Use the planning-and-task-breakdown skill. Read the spec, then break the work into small, independently verifiable tasks, each with acceptance criteria and explicit dependency order. Save the result to `tasks/plan.md` and `tasks/todo.md`. Write no product code — show me the plan and wait for my approval. |
-| `.github/prompts/build.prompt.md` | Implement the next planned task, test-first | Use the incremental-implementation and test-driven-development skills. Read `tasks/plan.md` and `tasks/todo.md`, then take the next unchecked task and only that one. Write a failing test first, make it pass, refactor, run the suite, and tick the task off. Stop there and report what changed. |
-| `.github/prompts/test.prompt.md` | Write tests before the code that satisfies them | Use the test-driven-development skill. For new behavior, write a failing test that captures it before any implementation. For a bug, reproduce it with a failing test first, then fix it. Run the suite after each step and show me the red and the green output. |
+| `.github/prompts/build.prompt.md` | Implement the next planned task, test-first | Use the typescript-incremental-implementation and typescript-test-driven-development skills. Read `tasks/plan.md` and `tasks/todo.md`, then take the next unchecked task and only that one. Write a failing test first, make it pass, refactor, run the suite, and tick the task off. Stop there and report what changed. |
+| `.github/prompts/test.prompt.md` | Write tests before the code that satisfies them | Use the typescript-test-driven-development skill. For new behavior, write a failing test that captures it before any implementation. For a bug, reproduce it with a failing test first, then fix it. Run the suite after each step and show me the red and the green output. |
 
 Write the body yourself, or take it from this table, rather than copying `.claude/commands/*.md` verbatim: those files reference skills as `agent-skills:<name>`, a Claude Code plugin namespace that means nothing to Copilot.
 

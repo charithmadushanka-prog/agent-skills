@@ -1,5 +1,5 @@
 {
-  "skill_name": "observability-and-instrumentation",
+  "skill_name": "typescript-observability-and-instrumentation",
   "trigger": {
     "positive": [
       {
@@ -18,7 +18,7 @@
     "negative": [
       {
         "prompt": "Simplify this over-clever component",
-        "owner": "code-simplification"
+        "owner": "typescript-code-simplification"
       },
       {
         "prompt": "Draft the PRD for the referral program"
@@ -31,7 +31,7 @@
       "prompt": "Instrument a new payment-retry feature so on-call can operate it.",
       "expected_output": "On-call questions defined first, then structured logs, RED metrics, and symptom-based alerts that answer them",
       "files": [
-        "observability-and-instrumentation"
+        "typescript-observability-and-instrumentation"
       ],
       "expectations": [
         "On-call questions are written before instrumentation is added",

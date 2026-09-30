@@ -15,29 +15,29 @@ body:
       label: Affected skill
       description: Which skill did not work as expected?
       options:
-        - api-and-interface-design
+        - typescript-api-and-interface-design
         - browser-testing-with-devtools
         - ci-cd-and-automation
         - code-review-and-quality
-        - code-simplification
+        - typescript-code-simplification
         - context-engineering
-        - debugging-and-error-recovery
+        - typescript-debugging-and-error-recovery
         - deprecation-and-migration
         - documentation-and-adrs
         - doubt-driven-development
-        - frontend-ui-engineering
+        - typescript-frontend-ui-engineering
         - git-workflow-and-versioning
         - idea-refine
-        - incremental-implementation
+        - typescript-incremental-implementation
         - interview-me
-        - observability-and-instrumentation
-        - performance-optimization
+        - typescript-observability-and-instrumentation
+        - typescript-performance-optimization
         - planning-and-task-breakdown
-        - security-and-hardening
+        - typescript-security-and-hardening
         - shipping-and-launch
         - source-driven-development
         - spec-driven-development
-        - test-driven-development
+        - typescript-test-driven-development
         - using-agent-skills
         - other / not sure
     validations:

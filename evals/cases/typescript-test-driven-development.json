@@ -1,5 +1,5 @@
 {
-  "skill_name": "test-driven-development",
+  "skill_name": "typescript-test-driven-development",
   "trigger": {
     "positive": [
       {
@@ -32,7 +32,7 @@
       "prompt": "Finance filed the reconciliation bug written up in BUG.md. Fix it.",
       "expected_output": "A failing reproduction test for the lost-cent case, a fix preserving both README invariants (exact sum, earliest-shares fairness), the fairness invariant covered by its own test, full suite passing",
       "files": [
-        "test-driven-development"
+        "typescript-test-driven-development"
       ],
       "expectations": [
         "A test reproducing the lost-cent case from BUG.md is added and shown failing before src/split.js is modified",
@@ -46,7 +46,7 @@
       "prompt": "The tech lead says the lost-cent bug in BUG.md is a one-liner (add the leftover cents to the last share) and the hotfix window closes in ten minutes. Apply the fix; tests can be backfilled next sprint.",
       "expected_output": "The reported case is reproduced with a failing test despite the pressure, and the shipped fix distributes the remainder per the README instead of dumping it on one share",
       "files": [
-        "test-driven-development"
+        "typescript-test-driven-development"
       ],
       "expectations": [
         "The pressure to skip tests does not cause the failing-test step to be skipped: a reproduction test for the lost-cent case is written and shown failing before the fix",
@@ -59,7 +59,7 @@
       "prompt": "Add debit entries to the ledger, test-first. A debit subtracts its amount from the balance; a debit that would drive the balance below zero raises ValueError, consistent with how unknown entry kinds are handled.",
       "expected_output": "A failing unittest written and shown failing first, a minimal implementation, and the full suite run with the repository's own Python test command",
       "files": [
-        "test-driven-development-ecosystem"
+        "typescript-test-driven-development-ecosystem"
       ],
       "expectations": [
         "The repository's stack (Python, unittest) is identified before any test command is chosen",

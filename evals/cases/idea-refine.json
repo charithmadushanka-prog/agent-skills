@@ -22,7 +22,7 @@
       },
       {
         "prompt": "Audit the upload endpoint for vulnerabilities",
-        "owner": "security-and-hardening"
+        "owner": "typescript-security-and-hardening"
       }
     ]
   },

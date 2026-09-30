@@ -38,7 +38,7 @@ Copy the relevant `SKILL.md` content into your agent's system prompt, rules file
 
 **Rules file:** Add skill content to your project's rules file (CLAUDE.md, .cursorrules, etc.).
 
-**Conversation:** Reference the skill when giving instructions: "Follow the test-driven-development process for this change."
+**Conversation:** Reference the skill when giving instructions: "Follow the typescript-test-driven-development process for this change."
 
 ### 4. Use the meta-skill for discovery when needed
 
@@ -67,7 +67,7 @@ Rolling out to a real project? The **[Adoption Guide](adoption-guide.md)** cover
 Load three essential skills into your rules file:
 
 1. **spec-driven-development** — For defining what to build
-2. **test-driven-development** — For proving it works
+2. **typescript-test-driven-development** — For proving it works
 3. **code-review-and-quality** — For verifying quality before merge
 
 These three cover the most critical quality gaps in AI-assisted development.
@@ -78,8 +78,8 @@ For comprehensive coverage, load skills by phase:
 
 ```
 Starting a project:  spec-driven-development → planning-and-task-breakdown
-During development:  incremental-implementation + test-driven-development
-Before merge:        code-review-and-quality + security-and-hardening
+During development:  typescript-incremental-implementation + typescript-test-driven-development
+Before merge:        code-review-and-quality + typescript-security-and-hardening
 Before deploy:       shipping-and-launch
 ```
 
@@ -87,8 +87,8 @@ Before deploy:       shipping-and-launch
 
 Don't load all skills at once — it wastes context. Load skills relevant to the current task:
 
-- Working on UI? Load `frontend-ui-engineering`
-- Debugging? Load `debugging-and-error-recovery`
+- Working on UI? Load `typescript-frontend-ui-engineering`
+- Debugging? Load `typescript-debugging-and-error-recovery`
 - Setting up CI? Load `ci-cd-and-automation`
 
 ## Skill Anatomy
@@ -130,11 +130,11 @@ The `.claude/commands/` directory contains slash commands for Claude Code:
 | `/spec` | spec-driven-development |
 | `/constraints` | constraint-driven-development |
 | `/plan` | planning-and-task-breakdown |
-| `/build` | incremental-implementation + test-driven-development |
-| `/build auto` | planning-and-task-breakdown → incremental-implementation + test-driven-development (whole plan, one approval) |
-| `/test` | test-driven-development |
+| `/build` | typescript-incremental-implementation + typescript-test-driven-development |
+| `/build auto` | planning-and-task-breakdown → typescript-incremental-implementation + typescript-test-driven-development (whole plan, one approval) |
+| `/test` | typescript-test-driven-development |
 | `/review` | code-review-and-quality |
-| `/code-simplify` | code-simplification |
+| `/code-simplify` | typescript-code-simplification |
 | `/ship` | shipping-and-launch |
 | `/webperf` | web-performance-auditor (specialist agent, web apps only) |
 
@@ -150,12 +150,12 @@ The `references/` directory contains supplementary checklists:
 
 | Reference | Use With |
 |-----------|----------|
-| `testing-patterns.md` | test-driven-development |
-| `performance-checklist.md` | performance-optimization |
-| `security-checklist.md` | security-and-hardening |
-| `accessibility-checklist.md` | frontend-ui-engineering |
+| `testing-patterns.md` | typescript-test-driven-development |
+| `performance-checklist.md` | typescript-performance-optimization |
+| `security-checklist.md` | typescript-security-and-hardening |
+| `accessibility-checklist.md` | typescript-frontend-ui-engineering |
 | `definition-of-done.md` | all skills / every change |
-| `observability-checklist.md` | observability-and-instrumentation |
+| `observability-checklist.md` | typescript-observability-and-instrumentation |
 | `orchestration-patterns.md` | doubt-driven-development |
 
 Load a reference when you need detailed patterns beyond what the skill covers.
@@ -202,7 +202,7 @@ This doesn't need the `/spec` and `/plan` wrappers — plain requests work in an
 ## Tips
 
 1. **Start with spec-driven-development** for any non-trivial work
-2. **Always load test-driven-development** when writing code
+2. **Always load typescript-test-driven-development** when writing code
 3. **Don't skip verification steps** — they're the whole point
 4. **Load skills selectively** — more context isn't always better
 5. **Use the agents for review** — different perspectives catch different issues

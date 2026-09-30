@@ -20,7 +20,7 @@ Docs: [Rules](https://docs.cursor.com/context/rules) · [Skills](https://docs.cu
 ### Rules vs skills
 
 - **Rules** — concise, stable (“use conventional commits”, “type-annotate public Python APIs”). Prefer one concern per file; avoid large pasted guides.
-- **Skills** — step-by-step processes from this repo (`test-driven-development`, `code-review-and-quality`, etc.). **Do not** copy entire `SKILL.md` bodies into rules; that duplicates `.cursor/skills/` and wastes context.
+- **Skills** — step-by-step processes from this repo (`typescript-test-driven-development`, `code-review-and-quality`, etc.). **Do not** copy entire `SKILL.md` bodies into rules; that duplicates `.cursor/skills/` and wastes context.
 
 ### Legacy (avoid for new setups)
 
@@ -41,7 +41,7 @@ your-project/
 │   │   └── agent-skills.mdc      # Optional: “use project skills” pointer
 │   └── skills/                   # What Cursor Agent loads
 │       ├── using-agent-skills/
-│       ├── test-driven-development/
+│       ├── typescript-test-driven-development/
 │       ├── code-review-and-quality/
 │       └── …                     # Synced from agent-skills + your own skills
 └── agent-skills/                 # Optional: git submodule or vendor clone
@@ -80,7 +80,7 @@ Each skill folder must contain `SKILL.md` with YAML frontmatter, at minimum:
 
 ```yaml
 ---
-name: test-driven-development
+name: typescript-test-driven-development
 description: Drives development with tests. Use when implementing logic, fixing bugs, or changing behavior.
 ---
 ```
@@ -135,7 +135,7 @@ Project skills in `.cursor/skills/` take precedence for **this** repo’s workfl
 
 1. **Settings → Rules** — project `.mdc` files listed.
 2. **Agent chat** — skills from `.cursor/skills/` appear in the skill list (if your Cursor build exposes it).
-3. Run a task that maps to a skill (e.g. “add a feature with tests first”) without naming the file — agent should open `test-driven-development` when routing works.
+3. Run a task that maps to a skill (e.g. “add a feature with tests first”) without naming the file — agent should open `typescript-test-driven-development` when routing works.
 
 ---
 
@@ -144,7 +144,7 @@ Project skills in `.cursor/skills/` take precedence for **this** repo’s workfl
 1. **Discover** — `using-agent-skills` maps task phase → skill name.
 2. **Read** — full process in `.cursor/skills/<name>/SKILL.md`.
 3. **Deep dive** — `reference.md`, `references/*.md`, or linked checklists when the skill says so.
-4. **Combine** — e.g. `incremental-implementation` + `api-and-interface-design` for an API slice.
+4. **Combine** — e.g. `typescript-incremental-implementation` + `typescript-api-and-interface-design` for an API slice.
 
 Explicit user phrases (“follow TDD”, “use code-review-and-quality”) still help if the agent drifts.
 
@@ -154,11 +154,11 @@ Explicit user phrases (“follow TDD”, “use code-review-and-quality”) stil
 |----------|--------|
 | Clarifying requirements | `interview-me`, `idea-refine`, `spec-driven-development` |
 | Planning tasks | `planning-and-task-breakdown` |
-| Implementing | `incremental-implementation`, `frontend-ui-engineering`, `api-and-interface-design` |
-| Testing | `test-driven-development`, `browser-testing-with-devtools` |
-| Debugging | `debugging-and-error-recovery` |
-| Reviewing | `code-review-and-quality`, `code-simplification` |
-| Security / performance | `security-and-hardening`, `performance-optimization` |
+| Implementing | `typescript-incremental-implementation`, `typescript-frontend-ui-engineering`, `typescript-api-and-interface-design` |
+| Testing | `typescript-test-driven-development`, `browser-testing-with-devtools` |
+| Debugging | `typescript-debugging-and-error-recovery` |
+| Reviewing | `code-review-and-quality`, `typescript-code-simplification` |
+| Security / performance | `typescript-security-and-hardening`, `typescript-performance-optimization` |
 | Git / CI / ship | `git-workflow-and-versioning`, `ci-cd-and-automation`, `shipping-and-launch` |
 
 Full tree: `skills/using-agent-skills/SKILL.md` in the repo.

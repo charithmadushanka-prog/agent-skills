@@ -1,5 +1,5 @@
 {
-  "skill_name": "performance-optimization",
+  "skill_name": "typescript-performance-optimization",
   "trigger": {
     "positive": [
       {
@@ -30,7 +30,7 @@
       },
       {
         "prompt": "Design the public interface for the billing module",
-        "owner": "api-and-interface-design"
+        "owner": "typescript-api-and-interface-design"
       }
     ]
   },
@@ -40,7 +40,7 @@
       "prompt": "The products page renders slowly with 1000 items. Improve its performance.",
       "expected_output": "A measured baseline, an identified bottleneck, a targeted fix, a verified improvement, and a regression guard",
       "files": [
-        "performance-optimization"
+        "typescript-performance-optimization"
       ],
       "expectations": [
         "Performance is measured before any optimization is applied",

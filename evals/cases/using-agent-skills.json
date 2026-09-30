@@ -18,11 +18,11 @@
     "negative": [
       {
         "prompt": "Debug the null pointer crash in checkout",
-        "owner": "debugging-and-error-recovery"
+        "owner": "typescript-debugging-and-error-recovery"
       },
       {
         "prompt": "Make the modal accessible for keyboard users",
-        "owner": "frontend-ui-engineering"
+        "owner": "typescript-frontend-ui-engineering"
       }
     ]
   },

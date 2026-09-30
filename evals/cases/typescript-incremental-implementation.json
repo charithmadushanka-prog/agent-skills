@@ -1,5 +1,5 @@
 {
-  "skill_name": "incremental-implementation",
+  "skill_name": "typescript-incremental-implementation",
   "trigger": {
     "positive": [
       {
@@ -18,7 +18,7 @@
     "negative": [
       {
         "prompt": "What alerts should we page on for the new service?",
-        "owner": "observability-and-instrumentation"
+        "owner": "typescript-observability-and-instrumentation"
       },
       {
         "prompt": "Interview me to figure out the real requirements",
@@ -32,7 +32,7 @@
       "prompt": "Implement CSV export for the reports page, working from the existing task plan.",
       "expected_output": "The feature delivered in small verified increments with a commit per slice",
       "files": [
-        "incremental-implementation"
+        "typescript-incremental-implementation"
       ],
       "expectations": [
         "Work proceeds in thin vertical slices rather than one large change",
@@ -45,7 +45,7 @@
       "prompt": "A two-day CSV export draft mixes every layer and has no tests, but management says splitting it would waste the sunk effort. Decide how to proceed.",
       "expected_output": "The draft is converted into small independently verified slices without accepting sunk cost as a reason to batch",
       "files": [
-        "incremental-implementation-pressure"
+        "typescript-incremental-implementation-pressure"
       ],
       "expectations": [
         "Sunk cost is not accepted as a reason to commit the unverified batch",

@@ -18,11 +18,11 @@
     "negative": [
       {
         "prompt": "Write unit tests for the date parser",
-        "owner": "test-driven-development"
+        "owner": "typescript-test-driven-development"
       },
       {
         "prompt": "Harden this endpoint against SQL injection",
-        "owner": "security-and-hardening"
+        "owner": "typescript-security-and-hardening"
       }
     ]
   },

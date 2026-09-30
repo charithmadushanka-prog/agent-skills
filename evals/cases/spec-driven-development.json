@@ -26,11 +26,11 @@
     "negative": [
       {
         "prompt": "Trace this request across our services",
-        "owner": "observability-and-instrumentation"
+        "owner": "typescript-observability-and-instrumentation"
       },
       {
         "prompt": "Simplify this clever one-liner into readable code",
-        "owner": "code-simplification"
+        "owner": "typescript-code-simplification"
       },
       {
         "prompt": "Break the approved spec into ordered implementation tasks",

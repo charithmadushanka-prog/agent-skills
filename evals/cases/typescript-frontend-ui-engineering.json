@@ -1,5 +1,5 @@
 {
-  "skill_name": "frontend-ui-engineering",
+  "skill_name": "typescript-frontend-ui-engineering",
   "trigger": {
     "positive": [
       {
@@ -26,7 +26,7 @@
     "negative": [
       {
         "prompt": "Optimize the slow database indexes",
-        "owner": "performance-optimization"
+        "owner": "typescript-performance-optimization"
       },
       {
         "prompt": "Tag and publish the release",
@@ -40,7 +40,7 @@
       "prompt": "Build a dropdown menu component for the design system.",
       "expected_output": "An accessible, keyboard-navigable component following project conventions",
       "files": [
-        "frontend-ui-engineering"
+        "typescript-frontend-ui-engineering"
       ],
       "expectations": [
         "Keyboard interaction and focus management are implemented, not just mouse clicks",

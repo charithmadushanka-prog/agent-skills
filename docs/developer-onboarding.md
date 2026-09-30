@@ -110,7 +110,7 @@ One point worth internalizing rather than looking up: when writing trigger promp
 
 1. [README.md](../README.md): the catalog and the lifecycle diagram (10 min)
 2. `skills/using-agent-skills/SKILL.md`: how routing works from the agent's side
-3. One well-established skill end to end (e.g. `test-driven-development`): internalize the anatomy by example
+3. One well-established skill end to end (e.g. `typescript-test-driven-development`): internalize the anatomy by example
 4. [skill-anatomy.md](skill-anatomy.md): the format spec, now with context
 5. [evals/README.md](../evals/README.md): the three tiers and the case format
 6. [CONTRIBUTING.md](../CONTRIBUTING.md) + [AGENTS.md](../AGENTS.md): the rules and the repo-scoped agent config

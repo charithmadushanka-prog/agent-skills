@@ -26,7 +26,7 @@
     "negative": [
       {
         "prompt": "Add dark mode to the settings page",
-        "owner": "frontend-ui-engineering"
+        "owner": "typescript-frontend-ui-engineering"
       },
       {
         "prompt": "Why is this test flaky on CI?",

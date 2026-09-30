@@ -1,5 +1,5 @@
 {
-  "skill_name": "security-and-hardening",
+  "skill_name": "typescript-security-and-hardening",
   "trigger": {
     "positive": [
       {
@@ -26,7 +26,7 @@
     "negative": [
       {
         "prompt": "Rename these variables for clarity",
-        "owner": "code-simplification"
+        "owner": "typescript-code-simplification"
       },
       {
         "prompt": "Set up the release tagging workflow",
@@ -40,7 +40,7 @@
       "prompt": "Harden an endpoint that accepts a user-supplied webhook URL and fetches it server-side.",
       "expected_output": "Threat-modeled hardening: allowlisting, private-IP blocking, and validated input with tests",
       "files": [
-        "security-and-hardening"
+        "typescript-security-and-hardening"
       ],
       "expectations": [
         "Trust boundaries are identified before controls are proposed",

@@ -34,7 +34,7 @@
       },
       {
         "prompt": "Write a failing test for this bug before we fix it",
-        "owner": "test-driven-development"
+        "owner": "typescript-test-driven-development"
       }
     ]
   },

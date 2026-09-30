@@ -18,11 +18,11 @@
     "negative": [
       {
         "prompt": "Debug the crash on startup",
-        "owner": "debugging-and-error-recovery"
+        "owner": "typescript-debugging-and-error-recovery"
       },
       {
         "prompt": "Encode the output so it is safe against XSS",
-        "owner": "security-and-hardening"
+        "owner": "typescript-security-and-hardening"
       }
     ]
   },

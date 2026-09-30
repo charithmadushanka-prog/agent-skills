@@ -181,8 +181,8 @@ This is about skill *content*; the portability of `references/` *paths* is a sep
 Reference other skills by name:
 
 ```markdown
-Follow the `test-driven-development` skill for writing tests.
-If the build breaks, use the `debugging-and-error-recovery` skill.
+Follow the `typescript-test-driven-development` skill for writing tests.
+If the build breaks, use the `typescript-debugging-and-error-recovery` skill.
 ```
 
 Don't duplicate content between skills — reference and link instead.

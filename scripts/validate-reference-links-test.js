@@ -213,7 +213,7 @@ test('ignores paths that are not references/ links', () => {
     [
       'Save the task list to `tasks/todo.md` and the plan to `tasks/plan.md`.',
       'Record findings in `PERF.md` or `docs/ideas/[idea-name].md`.',
-      'Related: `skills/incremental-implementation/SKILL.md`.',
+      'Related: `skills/typescript-incremental-implementation/SKILL.md`.',
       'See `../../references/definition-of-done.md`.',
       '',
     ].join('\n')

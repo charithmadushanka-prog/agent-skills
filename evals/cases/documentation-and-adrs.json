@@ -18,11 +18,11 @@
     "negative": [
       {
         "prompt": "Find the root cause of the memory leak in the worker",
-        "owner": "debugging-and-error-recovery"
+        "owner": "typescript-debugging-and-error-recovery"
       },
       {
         "prompt": "Harden the login endpoint against brute force attacks",
-        "owner": "security-and-hardening"
+        "owner": "typescript-security-and-hardening"
       }
     ]
   },

@@ -38,7 +38,7 @@ Run the lifecycle in order for the project's first real feature:
 ```
 /spec   →  SPEC.md            (spec-driven-development)
 /plan   →  tasks/plan.md      (planning-and-task-breakdown)
-/build  →  one slice at a time (incremental-implementation + test-driven-development)
+/build  →  one slice at a time (typescript-incremental-implementation + typescript-test-driven-development)
 /review →  before every merge  (code-review-and-quality)
 /ship   →  when going live     (shipping-and-launch)
 ```
@@ -47,20 +47,20 @@ Run the lifecycle in order for the project's first real feature:
 
 ### From the start, treat these as always-on
 
-- **test-driven-development**, coverage debt is cheapest to avoid at zero.
+- **typescript-test-driven-development**, coverage debt is cheapest to avoid at zero.
 - **git-workflow-and-versioning**, atomic commits and ~100-line changes are habits, not retrofits.
-- **security-and-hardening**, auth, input validation, and secrets handling are structural; bolting them on later is a migration project.
+- **typescript-security-and-hardening**, auth, input validation, and secrets handling are structural; bolting them on later is a migration project.
 - **documentation-and-adrs**, the first architectural decisions are exactly the ones nobody will remember the _why_ of in two years. An ADR now prevents the brownfield archaeology described in Path B.
 
 ### Add as the project grows
 
 | When                                | Load                                                          |
 | ----------------------------------- | ------------------------------------------------------------- |
-| First public API or module boundary | `api-and-interface-design`                                    |
-| First UI work                       | `frontend-ui-engineering` (+ `browser-testing-with-devtools`) |
+| First public API or module boundary | `typescript-api-and-interface-design`                                    |
+| First UI work                       | `typescript-frontend-ui-engineering` (+ `browser-testing-with-devtools`) |
 | First CI pipeline                   | `ci-cd-and-automation`                                        |
-| First production deploy             | `observability-and-instrumentation`, `shipping-and-launch`    |
-| Performance requirements appear     | `performance-optimization`                                    |
+| First production deploy             | `typescript-observability-and-instrumentation`, `shipping-and-launch`    |
+| Performance requirements appear     | `typescript-performance-optimization`                                    |
 
 ### Greenfield anti-patterns
 
@@ -80,15 +80,15 @@ Goal: the agent understands the codebase before it modifies anything.
 
 1. **`context-engineering` first.** Write the project rules file describing the real conventions, the ones in the code, not the ones in the wiki. Include build/test commands, directory meaning, known landmines ("don't touch `legacy/billing`, it has no tests and three known workarounds").
 2. **`code-review-and-quality` on incoming changes.** Reviewing is zero-risk and immediately valuable: the five-axis review and its severity labels (which separate what blocks a merge, Critical and Required, from what doesn't) work on any PR regardless of the codebase's state.
-3. **`debugging-and-error-recovery` for the bugs you were fixing anyway.** The five-step triage (reproduce → localize → reduce → fix → guard) shines in unfamiliar code, and the "guard" step starts building the regression suite you don't have.
+3. **`typescript-debugging-and-error-recovery` for the bugs you were fixing anyway.** The five-step triage (reproduce → localize → reduce → fix → guard) shines in unfamiliar code, and the "guard" step starts building the regression suite you don't have.
 4. **`doubt-driven-development` as a safety net.** Legacy code is exactly the "unfamiliar code, high cost of being wrong" scenario this skill targets. Adversarial fresh-context review of the agent's claims about how the legacy system works catches confident hallucinations before they become commits.
 
 ### Phase 2 | Tests before change
 
 Goal: every area the agent will touch gets a safety net first.
 
-- **`test-driven-development`, applied selectively.** Don't aim for global coverage; aim for coverage _where change is planned_. For untested legacy behavior, write characterization tests, tests that pin down what the code currently does, right or wrong, before any modification. The Beyonce Rule applies: if the agent liked a behavior enough to depend on it, it should have put a test on it.
-- **`code-simplification` on the worst hotspots.** Chesterton's Fence is the operative principle: the skill forces the agent to understand _why_ code exists before removing it. Behavior-preserving simplification plus characterization tests is the lowest-risk way to make legacy code changeable.
+- **`typescript-test-driven-development`, applied selectively.** Don't aim for global coverage; aim for coverage _where change is planned_. For untested legacy behavior, write characterization tests, tests that pin down what the code currently does, right or wrong, before any modification. The Beyonce Rule applies: if the agent liked a behavior enough to depend on it, it should have put a test on it.
+- **`typescript-code-simplification` on the worst hotspots.** Chesterton's Fence is the operative principle: the skill forces the agent to understand _why_ code exists before removing it. Behavior-preserving simplification plus characterization tests is the lowest-risk way to make legacy code changeable.
 - **`git-workflow-and-versioning` everywhere.** Small atomic commits matter _more_ in brownfield: when a change to old code breaks something subtle, a ~100-line commit is bisectable; a 2,000-line "modernization" commit is not.
 
 ### Phase 3 | New work runs the full lifecycle
@@ -96,14 +96,14 @@ Goal: every area the agent will touch gets a safety net first.
 Goal: two-speed adoption, legacy code stays under the Phase 1–2 regime; **new features get the greenfield treatment**.
 
 - New feature in the old codebase? `/spec → /plan → /build → /review`. The spec's boundaries section is where you declare what legacy surface the feature may and may not touch.
-- **`api-and-interface-design` at the seams.** When new code must talk to old code, design the boundary contract-first. Hyrum's Law is not theoretical in a years-old codebase, someone depends on every observable behavior, including the bugs.
-- **`security-and-hardening` as an audit, then a gate.** Run it once across the existing attack surface (auth, input handling, dependencies, the dependency audit alone usually pays for the exercise), file what you find, then enforce it on new changes.
+- **`typescript-api-and-interface-design` at the seams.** When new code must talk to old code, design the boundary contract-first. Hyrum's Law is not theoretical in a years-old codebase, someone depends on every observable behavior, including the bugs.
+- **`typescript-security-and-hardening` as an audit, then a gate.** Run it once across the existing attack surface (auth, input handling, dependencies, the dependency audit alone usually pays for the exercise), file what you find, then enforce it on new changes.
 
 ### Phase 4 | Pay down, deprecate, observe
 
 - **`deprecation-and-migration`** is the brownfield skill par excellence: code-as-liability, compulsory vs. advisory deprecation, and zombie-code removal give you a disciplined way to shrink the legacy surface instead of just wrapping it.
-- **`observability-and-instrumentation`** retrofitted along the paths you actually debug: structured logging and RED metrics on the top incident sources first.
-- **`performance-optimization`** when regressions matter, its measure-first rule prevents the classic legacy trap of optimizing code that was never the bottleneck.
+- **`typescript-observability-and-instrumentation`** retrofitted along the paths you actually debug: structured logging and RED metrics on the top incident sources first.
+- **`typescript-performance-optimization`** when regressions matter, its measure-first rule prevents the classic legacy trap of optimizing code that was never the bottleneck.
 
 ### Brownfield anti-patterns
 

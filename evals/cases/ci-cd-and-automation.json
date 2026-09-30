@@ -18,11 +18,11 @@
     "negative": [
       {
         "prompt": "Refactor this function so it is easier to read",
-        "owner": "code-simplification"
+        "owner": "typescript-code-simplification"
       },
       {
         "prompt": "Add structured logging to the checkout service",
-        "owner": "observability-and-instrumentation"
+        "owner": "typescript-observability-and-instrumentation"
       }
     ]
   },

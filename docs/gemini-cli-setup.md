@@ -41,7 +41,7 @@ For skills you want always loaded as persistent project context (rather than on-
 
 ```bash
 # Create GEMINI.md with core skills as persistent context
-cat /path/to/agent-skills/skills/incremental-implementation/SKILL.md > GEMINI.md
+cat /path/to/agent-skills/skills/typescript-incremental-implementation/SKILL.md > GEMINI.md
 echo -e "\n---\n" >> GEMINI.md
 cat /path/to/agent-skills/skills/code-review-and-quality/SKILL.md >> GEMINI.md
 ```
@@ -51,8 +51,8 @@ You can also modularize by importing from separate files:
 ```markdown
 # Project Instructions
 
-@skills/test-driven-development/SKILL.md
-@skills/incremental-implementation/SKILL.md
+@skills/typescript-test-driven-development/SKILL.md
+@skills/typescript-incremental-implementation/SKILL.md
 ```
 
 Use `/memory show` to verify loaded context, and `/memory reload` to refresh after changes.
@@ -65,18 +65,18 @@ Use `/memory show` to verify loaded context, and `/memory reload` to refresh aft
 
 Add these as persistent context for every session:
 
-- `incremental-implementation` — Build in small verifiable slices
+- `typescript-incremental-implementation` — Build in small verifiable slices
 - `code-review-and-quality` — Five-axis review
 
 ### On-Demand (Skills)
 
 Install these as skills so they activate only when relevant:
 
-- `test-driven-development` — Activates when implementing logic or fixing bugs
+- `typescript-test-driven-development` — Activates when implementing logic or fixing bugs
 - `spec-driven-development` — Activates when starting a new project or feature
-- `frontend-ui-engineering` — Activates when building UI
-- `security-and-hardening` — Activates during security reviews
-- `performance-optimization` — Activates during performance work
+- `typescript-frontend-ui-engineering` — Activates when building UI
+- `typescript-security-and-hardening` — Activates during security reviews
+- `typescript-performance-optimization` — Activates during performance work
 
 ## Advanced Configuration
 
@@ -85,7 +85,7 @@ Install these as skills so they activate only when relevant:
 Many skills in this pack leverage [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) tools to interact with the environment. For example:
 
 - `browser-testing-with-devtools` uses the `chrome-devtools` MCP extension.
-- `performance-optimization` can benefit from performance-related MCP tools.
+- `typescript-performance-optimization` can benefit from performance-related MCP tools.
 
 To enable these, ensure you have the relevant MCP extensions installed in your Gemini CLI configuration (`~/.gemini/config.json`).
 
@@ -100,7 +100,7 @@ To replicate the `agent-skills` experience from other tools, you can configure a
 You can explicitly load any skill into your current session by referencing it with the `@` symbol in your prompt:
 
 ```markdown
-Use the @skills/test-driven-development/SKILL.md skill to implement this fix.
+Use the @skills/typescript-test-driven-development/SKILL.md skill to implement this fix.
 ```
 
 This is useful when you want to ensure a specific workflow is followed without waiting for auto-discovery.
