@@ -4,6 +4,8 @@
 
 Skills encode the workflows, quality gates, and best practices that senior engineers use when building software. These ones are packaged so Claude Code follows them consistently across every phase of development.
 
+> This is a Claude Code-only fork of [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills). Support for other agents has been removed, and skills built around TypeScript code carry a `typescript-` prefix.
+
 ```
   DEFINE          PLAN           BUILD          VERIFY         REVIEW          SHIP
  ┌──────┐      ┌──────┐      ┌──────┐      ┌──────┐      ┌──────┐      ┌──────┐
@@ -44,13 +46,13 @@ Agent Skills is a Claude Code plugin.
 **Marketplace install:**
 
 ```
-/plugin marketplace add addyosmani/agent-skills
+/plugin marketplace add charithmadushanka-prog/agent-skills
 /plugin install agent-skills@addy-agent-skills
 ```
 
 > **SSH errors?** The marketplace clones repos via SSH. If you don't have SSH keys set up on GitHub, either [add your SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) or use the full HTTPS URL to force HTTPS cloning during the marketplace-add step:
 > ```bash
-> /plugin marketplace add https://github.com/addyosmani/agent-skills.git
+> /plugin marketplace add https://github.com/charithmadushanka-prog/agent-skills.git
 > /plugin install agent-skills@addy-agent-skills
 > ```
 >
@@ -62,23 +64,23 @@ Agent Skills is a Claude Code plugin.
 **Local / development:**
 
 ```bash
-git clone https://github.com/addyosmani/agent-skills.git
+git clone https://github.com/charithmadushanka-prog/agent-skills.git
 claude --plugin-dir /path/to/agent-skills
 ```
 
 **Skills only, via the skills CLI.** The open [skills CLI](https://github.com/vercel-labs/skills) can copy the skills into Claude Code's skills directory without the plugin (no slash commands, personas, or hooks):
 
 ```bash
-npx skills add addyosmani/agent-skills            # install all 25 skills
-npx skills add addyosmani/agent-skills --list     # browse before installing
+npx skills add charithmadushanka-prog/agent-skills            # install all 25 skills
+npx skills add charithmadushanka-prog/agent-skills --list     # browse before installing
 ```
 
 Or grab individual skills:
 
 ```bash
-npx skills add addyosmani/agent-skills --skill code-review-and-quality   # five-axis review before merge
-npx skills add addyosmani/agent-skills --skill interview-me              # requirements interrogation, one question at a time
-npx skills add addyosmani/agent-skills --skill typescript-test-driven-development   # red-green-refactor, enforced
+npx skills add charithmadushanka-prog/agent-skills --skill code-review-and-quality   # five-axis review before merge
+npx skills add charithmadushanka-prog/agent-skills --skill interview-me              # requirements interrogation, one question at a time
+npx skills add charithmadushanka-prog/agent-skills --skill typescript-test-driven-development   # red-green-refactor, enforced
 ```
 
 > **Installing one skill?** A per-skill `npx` install copies only
@@ -86,7 +88,7 @@ npx skills add addyosmani/agent-skills --skill typescript-test-driven-developmen
 > works, but paths to supplementary shared checklists are unavailable. Use the
 > plugin install, clone the repository, or copy the needed checklist into
 > a `references/` directory inside the installed skill. This gap is
-> tracked in [#361](https://github.com/addyosmani/agent-skills/issues/361).
+> tracked upstream in [addyosmani/agent-skills#361](https://github.com/addyosmani/agent-skills/issues/361).
 
 See [docs/getting-started.md](docs/getting-started.md) for more setup options.
 
@@ -101,6 +103,8 @@ Already installed? How you roll the pack out depends on your codebase. The **[Ad
 ## All 25 Skills
 
 The commands above are entry points. The pack includes 25 skills total — 24 lifecycle skills plus the `using-agent-skills` meta-skill. Each skill is a structured workflow with steps, verification gates, and anti-rationalization tables. You can also reference any skill directly.
+
+Skills prefixed with `typescript-` are code-heavy workflows whose examples are written in TypeScript. The rest are language-agnostic process skills.
 
 ### Meta - Discover which skill applies
 
@@ -207,7 +211,7 @@ Every skill follows a consistent anatomy:
 │  │ name: lowercase-hyphen-name               │  │
 │  │ description: Guides agents through [task].│  │
 │  │              Use when…                    │  │
-│  └───────────────────────────────────────────┘  │                                                                                                
+│  └───────────────────────────────────────────┘  │
 │  Overview         → What this skill does        │
 │  When to Use      → Triggering conditions       │
 │  Process          → Step-by-step workflow       │
@@ -262,15 +266,9 @@ See [docs/skill-anatomy.md](docs/skill-anatomy.md) for the format specification 
 
 ---
 
-## Team
+## Credits
 
-agent-skills is built and maintained by:
-
-| | Name | GitHub | Role |
-|---|------|--------|------|
-| <img src="https://github.com/addyosmani.png?size=120" width="60" height="60" alt="Addy Osmani"> | **Addy Osmani** | [@addyosmani](https://github.com/addyosmani) | Creator |
-| <img src="https://github.com/federicobartoli.png?size=120" width="60" height="60" alt="Federico Bartoli"> | **Federico Bartoli** | [@federicobartoli](https://github.com/federicobartoli) | Collaborator |
-| <img src="https://github.com/nucliweb.png?size=120" width="60" height="60" alt="Joan León"> | **Joan León** | [@nucliweb](https://github.com/nucliweb) | Collaborator |
+This fork is maintained by [@charithmadushanka-prog](https://github.com/charithmadushanka-prog). It is based on [agent-skills](https://github.com/addyosmani/agent-skills), created by [Addy Osmani](https://github.com/addyosmani) with [Federico Bartoli](https://github.com/federicobartoli), [Joan León](https://github.com/nucliweb), and contributors.
 
 ---
 
